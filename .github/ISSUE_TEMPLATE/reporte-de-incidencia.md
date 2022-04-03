@@ -2,7 +2,7 @@
 name: Reporte de Incidencia
 about: Crear un reporte para ayudarnos a mejorar
 title: ''
-labels: ''
+labels: bug
 assignees: ''
 
 ---
