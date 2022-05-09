@@ -8,5 +8,7 @@
     "TAGNAME": "pruebaTag",
     "TAGDESCR": "Descripción del tag",
     "POSTTITLE": "prueba de post",
-    "POSTDESC": "Descripción del tag"
+    "POSTTITLE2": "prueba de post 2",
+    "POSTDESC": "Descripción del tag",
+    "RUTA": "http://localhost:2368/ghost/"
 }
