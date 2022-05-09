@@ -246,16 +246,6 @@ Given('I navigate to page public page', async function () {
   return await this.driver.url("http://localhost:2368/");
 });
 
-When("I enter email {string}", async function (email) {
-  let element = await this.driver.$('#ember7');
-  return await element.setValue(email);
-});
-
-When("I enter password {string}", async function (password) {
-  let element = await this.driver.$('#ember9');
-  return await element.setValue(password);
-});
-
 When('I click on Sing in button', async function () {
   let element = await this.driver.$("#ember11");
   return await element.click();
@@ -306,7 +296,7 @@ When('I click on Post settings button', async function () {
 });
 
 When('I click on Publish dropdown menu', async function () {
-  let element = await this.driver.$("//body/div/div/main/div/section/header/section/div[2]");
+  let element = await this.driver.$(".ember-view.ember-basic-dropdown-trigger");
   return await element.click();
 });
 
