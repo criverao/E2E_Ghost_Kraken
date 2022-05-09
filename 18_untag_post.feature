@@ -1,7 +1,7 @@
-Feature: General Settings
+Feature: Post
 
   @user1 @web
-  Scenario: Crear una página
+  Scenario: Eliminar tag de Post
     Given I navigate to administration page
     When I enter email "c.riverao@uniandes.edu.co"
     And I enter password "gSZ59nGHKkXQ^ZKQM!H@6yZB"
@@ -21,7 +21,6 @@ Feature: General Settings
     And I wait for 1 seconds
     And I deselect a selected tag
     And I wait for 1 seconds
-
     And I click on Publish dropdown menu
     And I wait for 1 seconds
     And I click on Publish button
@@ -32,7 +31,6 @@ Feature: General Settings
     And I wait for 3 seconds
     And I click on Profile button
     And I wait for 1 seconds
-    And I click on Sign out item menu
-    And I wait for 1 seconds
+    Then I click on Sign out item menu
 
 

@@ -1,7 +1,7 @@
-Feature: General Settings
+Feature: Login
 
   @user1 @web
-  Scenario: Modificar la configuración general de publicación
+  Scenario: Inicio y cierre de sesión
     Given I navigate to administration page
     When I enter email "<USER>"
     And I enter password "<PASSWORD>"
@@ -9,5 +9,4 @@ Feature: General Settings
     And I wait for 2 seconds
     And I click on Profile button
     And I wait for 2 seconds
-    And I click on Sign out item menu
-    And I wait for 2 seconds
+    Then I click on Sign out item menu

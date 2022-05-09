@@ -34,7 +34,6 @@ Feature: General Settings
     And I wait for 2 seconds
     And I click on Sign out item menu
     And I wait for 2 seconds
-    And I navigate to page public page
-    And I wait for 2 seconds
+    Then I navigate to page public page
 
 

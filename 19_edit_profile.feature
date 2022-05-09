@@ -1,4 +1,4 @@
-Feature: General Settings
+Feature: Edición de perfil de Staff
 
   @user1 @web
   Scenario: Editar el perfil de usuario
@@ -18,7 +18,6 @@ Feature: General Settings
     And I wait for 1 seconds
     And I click on Profile button
     And I wait for 1 seconds
-    And I click on Sign out item menu
-    And I wait for 1 seconds
+    Then I click on Sign out item menu
 
 
