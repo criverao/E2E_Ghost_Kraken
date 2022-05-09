@@ -1,7 +1,7 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const expect = require('chai').expect;
 
-When('I enter email {kraken-string}', async function (email) {
+/*When('I enter email {kraken-string}', async function (email) {
     let element = await this.driver.$('input[name="identification"]');
     return await element.setValue(email);
   });
@@ -185,7 +185,7 @@ Then('the new post exists {kraken-string}', async function (postTitle) {
   let elements = await this.driver.$$(`//h3[contains(., '${postTitle}')]`);
   let ingreso = elements.length > 0;
   expect(ingreso).to.equal(true);
-});
+});*/
 
 // METODOS CESAR RIVERA
 Given('I navigate to administration page', async function () {
@@ -270,6 +270,11 @@ When('I click on Publish button', async function () {
     return await element.click();
 });
 
+When('I click on confirmation alert Publish button', async function () {
+    let element = await this.driver.$("//button[@class='gh-btn gh-btn-black gh-btn-icon ember-view']");
+    return await element.click();
+});
+
 When('I click on {string} menu', async function (name) {
     let element = await this.driver.$('a[href="#/' + name + '/"]');
     return await element.click();
@@ -324,6 +329,31 @@ When('I select the Timezone option America-Tijuana', async function () {
     return await element.click();
 });
 
+When('I click on select Tags', async function () {
+    let element = await this.driver.$("//div[@class='form-group']//input[@type='search']");
+    return await element.click();
+});
+
+When('I select a tag', async function () {
+    let element = await this.driver.$("//li[normalize-space()='#internal']");
+    return await element.click();
+});
+
+When('I click on tag filter', async function () {
+    let element = await this.driver.$("//span[normalize-space()='All tags']");
+    return await element.click();
+});
+
+When('I filter post by All tags', async function () {
+    let element = await this.driver.$("//li[@aria-current='true']");
+    return await element.click();
+});
+
+When('I deselect a selected tag', async function () {
+    let element = await this.driver.$("/html[1]/body[1]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[3]/div[1]/div[1]/ul[1]/li[1]");
+    return await element.click();
+});
+
 When('I click on Make this site private', async function () {
     let element = await this.driver.$("(//span[@class='input-toggle-component'])[1]");
     return await element.click();
@@ -353,4 +383,9 @@ When('I click on the button having id {string}', async function (button) {
     let element = await this.driver.$(`a[href="${href}"]`);
     return await element.click();
 });*/
+
+When('I select a Post', async function () {
+    let elements = await this.driver.$$("body > div:nth-child(4) > div:nth-child(3) > main:nth-child(2) > section:nth-child(1) > section:nth-child(2) > ol:nth-child(1) > li:nth-child(2) > a:nth-child(1)");
+    return await elements[0].click();
+});
 
