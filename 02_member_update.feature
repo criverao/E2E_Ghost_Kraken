@@ -15,7 +15,7 @@ Scenario: Actualizar correo miembro
     And I click on profile "<NAME>"   
     And I wait for 1 seconds
     And I enter email new profile "<EMAIL2>"    
-    And I click save button     
+    And I click on Save button
     And I wait for 2 seconds
     And I click Members
     Then the new profile exists "<EMAIL2>"

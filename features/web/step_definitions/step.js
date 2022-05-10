@@ -6,139 +6,143 @@ When('I enter email {kraken-string}', async function (email) {
     return await element.setValue(email);
   });
   
-  When('I enter password {kraken-string}', async function (password) {
-    let element = await this.driver.$('input[name="password"]');
-    return await element.setValue(password);
-  });
-  
-  When('I click Sign In', async function() {
-    let element = await this.driver.$('button[id="ember11"]');
-    return await element.click();
-  })
+When('I enter password {kraken-string}', async function (password) {
+  let element = await this.driver.$('input[name="password"]');
+  return await element.setValue(password);
+});
 
-  When('I click on profile', async function() {
-    let element = await this.driver.$('div[id="ember33"]');
-    return await element.click();
-  })
+When('I click Sign In', async function() {
+  let element = await this.driver.$("//button[@type='submit']");
+  return await element.click();
+})
 
-  Then('I am in Ghost', async function () {
-    let elements = await this.driver.$$("div[class='gh-user-info']");
-    let ingreso = elements.length > 0;
-    expect(ingreso).to.equal(true);
-  });
+When('I click on Profile button', async function () {
+  let element = await this.driver.$("(//div[@role='button'])[1]");
+  return await element.click();
+});
 
-  When('I click Members', async function () {
-    let elements = await this.driver.$$("body > div.gh-app > div > nav.gh-nav > div > section > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage > li:nth-child(4) > a");
-    return await elements[0].click();
-  });
+Then('I am in Ghost', async function () {
+  let elements = await this.driver.$$("div[class='gh-user-info']");
+  let ingreso = elements.length > 0;
+  expect(ingreso).to.equal(true);
+});
 
-  When('I click New Member', async function () {
-    let elements = await this.driver.$$("body > div.gh-app > div > main > section > div > header > section > div.view-actions-top-row > a.gh-btn-primary");    
-    return await elements[0].click();
-  });
+When('I click Members', async function () {
+  let elements = await this.driver.$$("body > div.gh-app > div > nav.gh-nav > div > section > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage > li:nth-child(4) > a");
+  return await elements[0].click();
+});
 
-  When('I enter name new profile {kraken-string}', async function (name) {
-    let elements = await this.driver.$$("input[id='member-name']");
-    return await elements[0].setValue(name);
-  });
+When('I click New Member', async function () {
+  let elements = await this.driver.$$("body > div.gh-app > div > main > section > div > header > section > div.view-actions-top-row > a.gh-btn-primary");
+  return await elements[0].click();
+});
 
-  When('I enter email new profile {kraken-string}', async function (email) {
-    let elements = await this.driver.$$("input[id='member-email']");
-    return await elements[0].setValue(email);
-  });
+When('I enter name new profile {kraken-string}', async function (name) {
+  let elements = await this.driver.$$("input[id='member-name']");
+  return await elements[0].setValue(name);
+});
 
-  When('I click save button', async function () {
-    let elements = await this.driver.$$("body > div.gh-app > div > main > section > div.gh-canvas-header > header > section > button");
-    return await elements[0].click();
-  });
+When('I enter email new profile {kraken-string}', async function (email) {
+  let elements = await this.driver.$$("input[id='member-email']");
+  return await elements[0].setValue(email);
+});
 
-  Then('the new profile exists {kraken-string}', async function (email) {   
-    let elements = await this.driver.$$(`//p[contains(., '${email}')]`);
-    let ingreso = elements.length > 0;
-    expect(ingreso).to.equal(true);
-  });
+/*When('I click save button', async function () {
+  let elements = await this.driver.$$("body > div.gh-app > div > main > section > div.gh-canvas-header > header > section > button");
+  return await elements[0].click();
+});*/
+When('I click on Save button', async function () {
+  let element = await this.driver.$("//body//div//div//main//section//div//header//section//button");
+  return await element.click();
+});
 
-  When('I click on profile {kraken-string}', async function (name) {
-    let elements = await this.driver.$$(`//a[contains(./div/div/h3, '${name}')]`);
-    return await elements[0].click();
-  });
+Then('the new profile exists {kraken-string}', async function (email) {
+  let elements = await this.driver.$$(`//p[contains(., '${email}')]`);
+  let ingreso = elements.length > 0;
+  expect(ingreso).to.equal(true);
+});
 
-
-  When('I click on options', async function () {
-    let elements = await this.driver.$$(`body > div.gh-app > div > main > section > div.gh-canvas-header > header > section > span > button`);
-    return await elements[0].click();
-  });
-
-  When('I click on delete member', async function () {
-    let elements = await this.driver.$$(`body > div.gh-app > div > main > section > div.gh-canvas-header > header > section > span > ul > li:nth-child(2) > button`);
-    return await elements[0].click();
-  });
+When('I click on profile {kraken-string}', async function (name) {
+  let elements = await this.driver.$$(`//a[contains(./div/div/h3, '${name}')]`);
+  return await elements[0].click();
+});
 
 
-  Then('the delete profile not exists {kraken-string}', async function (email) {   
-    let elements = await this.driver.$$(`//p[contains(., '${email}')]`);
-    let ingreso = elements.length > 0;
-    expect(ingreso).to.equal(false);
-  });
+When('I click on options', async function () {
+  let elements = await this.driver.$$(`body > div.gh-app > div > main > section > div.gh-canvas-header > header > section > span > button`);
+  return await elements[0].click();
+});
 
-  //Métodos para tags
-  When('I click Tags', async function () {
-    let elements = await this.driver.$$("body > div.gh-app > div > nav.gh-nav > div > section > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage > li:nth-child(3) > a");
-    return await elements[0].click();
-  });
+When('I click on delete member', async function () {
+  let elements = await this.driver.$$(`body > div.gh-app > div > main > section > div.gh-canvas-header > header > section > span > ul > li:nth-child(2) > button`);
+  return await elements[0].click();
+});
 
-  When('I click New Tag', async function () {
-    let elements = await this.driver.$$("body > div.gh-app > div > main > section > div > header > section > a.gh-btn-primary");    
-    return await elements[0].click();
-  });
 
-  When('I enter name new tag {kraken-string}', async function (name) {
-    let elements = await this.driver.$$("input[id='tag-name']");
-    return await elements[0].setValue(name);
-  });
+Then('the delete profile not exists {kraken-string}', async function (email) {
+  let elements = await this.driver.$$(`//p[contains(., '${email}')]`);
+  let ingreso = elements.length > 0;
+  expect(ingreso).to.equal(false);
+});
 
-  Then('the new tag exists {kraken-string}', async function (tagName) {   
-    let elements = await this.driver.$$(`//h3[contains(., '${tagName}')]`);
-    let ingreso = elements.length > 0;
-    expect(ingreso).to.equal(true);
-  });
+//Métodos para tags
+When('I click Tags', async function () {
+  let elements = await this.driver.$$("body > div.gh-app > div > nav.gh-nav > div > section > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage > li:nth-child(3) > a");
+  return await elements[0].click();
+});
 
-  When('I click save tag button', async function () {
-    let elements = await this.driver.$$("body > div.gh-app > div > main > section > form > div.gh-canvas-header > header > section > button");
-    return await elements[0].click();
-  });
+When('I click New Tag', async function () {
+  let elements = await this.driver.$$("body > div.gh-app > div > main > section > div > header > section > a.gh-btn-primary");
+  return await elements[0].click();
+});
 
-  When('I click on tag {kraken-string}', async function (name) {
-    let elements = await this.driver.$$(`//a[contains(./h3, '${name}')]`);
-    return await elements[0].click();
-  });
+When('I enter name new tag {kraken-string}', async function (name) {
+  let elements = await this.driver.$$("input[id='tag-name']");
+  return await elements[0].setValue(name);
+});
 
-  When('I enter a tag description {kraken-string}', async function (description) {
-    let elements = await this.driver.$$("textarea[id='tag-description']");
-    return await elements[0].setValue(description);
-  });
+Then('the new tag exists {kraken-string}', async function (tagName) {
+  let elements = await this.driver.$$(`//h3[contains(., '${tagName}')]`);
+  let ingreso = elements.length > 0;
+  expect(ingreso).to.equal(true);
+});
 
-  Then('the tag desc exists {kraken-string}', async function (tagDesc) {   
-    let elements = await this.driver.$$(`//p[contains(., '${tagDesc}')]`);
-    let ingreso = elements.length > 0;
-    expect(ingreso).to.equal(true);
-  });
+When('I click save tag button', async function () {
+  let elements = await this.driver.$$("body > div.gh-app > div > main > section > form > div.gh-canvas-header > header > section > button");
+  return await elements[0].click();
+});
 
-  When('I click on delete tag', async function () {
-    let elements = await this.driver.$$(`body > div.gh-app > div > main > section > div > button`);
-    return await elements[0].click();
-  });
+When('I click on tag {kraken-string}', async function (name) {
+  let elements = await this.driver.$$(`//a[contains(./h3, '${name}')]`);
+  return await elements[0].click();
+});
 
-  When('I confirm delete', async function () {
-    let elements = await this.driver.$$(`div.modal-footer > button.gh-btn-red`);
-    return await elements[0].click();
-  });
+When('I enter a tag description {kraken-string}', async function (description) {
+  let elements = await this.driver.$$("textarea[id='tag-description']");
+  return await elements[0].setValue(description);
+});
 
-  Then('the delete tag not exists {kraken-string}', async function (tagName) {   
-    let elements = await this.driver.$$(`//h3[contains(., '${tagName}')]`);
-    let ingreso = elements.length > 0;
-    expect(ingreso).to.equal(false);
-  });
+Then('the tag desc exists {kraken-string}', async function (tagDesc) {
+  let elements = await this.driver.$$(`//p[contains(., '${tagDesc}')]`);
+  let ingreso = elements.length > 0;
+  expect(ingreso).to.equal(true);
+});
+
+When('I click on delete tag', async function () {
+  let elements = await this.driver.$$(`body > div.gh-app > div > main > section > div > button`);
+  return await elements[0].click();
+});
+
+When('I confirm delete', async function () {
+  let elements = await this.driver.$$(`div.modal-footer > button.gh-btn-red`);
+  return await elements[0].click();
+});
+
+Then('the delete tag not exists {kraken-string}', async function (tagName) {
+  let elements = await this.driver.$$(`//h3[contains(., '${tagName}')]`);
+  let ingreso = elements.length > 0;
+  expect(ingreso).to.equal(false);
+});
 
 //Métodos para POSTS
 When('I click Posts', async function () {
@@ -246,16 +250,6 @@ Given('I navigate to page public page', async function () {
   return await this.driver.url("http://localhost:2368/");
 });
 
-When('I click on Sing in button', async function () {
-  let element = await this.driver.$("#ember11");
-  return await element.click();
-});
-
-When('I click on Profile button', async function () {
-  let element = await this.driver.$("/html[1]/body[1]/div[2]/div[1]/nav[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]");
-  return await element.click();
-});
-
 When('I click on Settings button', async function () {
   let element = await this.driver.$(`a[href="#/settings/"]`);
   return await element.click();
@@ -266,10 +260,6 @@ When('I click on General Setting button', async function () {
   return await element.click();
 });
 
-When('I click on Save button', async function () {
-  let element = await this.driver.$("//body//div//div//main//section//div//header//section//button");
-  return await element.click();
-});
 When('I click on Staff Save button', async function () {
   let element = await this.driver.$("//button[@class='gh-btn gh-btn-primary gh-btn-icon ember-view']");
   return await element.click();

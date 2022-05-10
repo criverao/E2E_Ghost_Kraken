@@ -5,7 +5,7 @@ Feature: General Settings
     Given I navigate to administration page
     When I enter email "c.riverao@uniandes.edu.co"
     And I enter password "gSZ59nGHKkXQ^ZKQM!H@6yZB"
-    And I click on Sing in button
+    And I click Sign In
     And I click on Settings button
     And I click on General Setting button
     And I wait for 1 seconds
@@ -22,7 +22,7 @@ Feature: General Settings
     And I navigate to administration page
     And I enter email "c.riverao@uniandes.edu.co"
     And I enter password "gSZ59nGHKkXQ^ZKQM!H@6yZB"
-    And I click on Sing in button
+    And I click Sign In
     And I click on Settings button
     And I click on General Setting button
     And I wait for 1 seconds

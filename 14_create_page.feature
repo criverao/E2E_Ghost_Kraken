@@ -5,7 +5,7 @@ Feature: Pages
     Given I navigate to administration page
     When I enter email "c.riverao@uniandes.edu.co"
     And I enter password "gSZ59nGHKkXQ^ZKQM!H@6yZB"
-    And I click on Sing in button
+    And I click Sign In
     And I click on "pages" menu
     And I click on New "page" button
     And I wait for 1 seconds
