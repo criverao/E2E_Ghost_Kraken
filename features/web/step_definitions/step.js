@@ -19,3 +19,8 @@ When('I confirm delete', async function () {
 When('I enter the text {string}', async function (text) {
   return await this.driver.keys(text);
 });
+
+When('I click on link having href {string}', async function (href) {
+    let element = await this.driver.$(`a[href="${href}"]`);
+    return await element.click();
+});
