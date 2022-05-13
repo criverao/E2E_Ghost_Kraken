@@ -6,6 +6,11 @@ When('I click on Profile button', async function () {
     return await element.click();
 });
 
+When('I click on Your profile item menu', async function () {
+    let element = await this.driver.$('/html[1]/body[1]/div[1]/div[1]/ul[1]/li[4]/a[1]');
+    return await element.click();
+});
+
 When('I enter name new profile {kraken-string}', async function (name) {
     let elements = await this.driver.$$("input[id='member-name']");
     return await elements[0].setValue(name);

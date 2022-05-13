@@ -2,7 +2,7 @@ Feature: Ghost Update Miembros
 
 @user3 @web
 Scenario: Actualizar correo miembro
-    Given I navigate to page "<RUTA>"
+    Given I navigate to page "<ADMIN_URL>"
     When I wait for 2 seconds to take a screenshot
     When I enter email "<USER>"
     And I wait for 2 seconds to take a screenshot

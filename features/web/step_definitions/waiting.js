@@ -3,12 +3,15 @@ const fs = require("fs");
 let appVersion = 'v4.41.3';
 //let appVersion = 'v3.42';
 let counter = 0;
+const skipWaits = 0;
+const takeScreenshots = 1;
 
 When('I just wait for {int} seconds', async function (seconds) {
     return await new Promise(r => setTimeout(r, 1000 * seconds));
 });
 
 When('I wait for {int} seconds to take a screenshot', async function (seconds) {
+    if (skipWaits) return true;
     counter += 1;
 
     let featureName = featureFileInPath('./features');
@@ -17,7 +20,10 @@ When('I wait for {int} seconds to take a screenshot', async function (seconds) {
     createFolderIfDoesNotExists(dir);
 
     await new Promise(r => setTimeout(r, 1000 * seconds));
-    return await this.driver.saveScreenshot(`${dir}/${counter}.png`);
+
+    if (takeScreenshots) {
+        return await this.driver.saveScreenshot(`${dir}/${counter}.png`);
+    }
 });
 
 function createFolderIfDoesNotExists(path) {

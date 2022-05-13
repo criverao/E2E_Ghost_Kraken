@@ -8,13 +8,13 @@ When('I click on Expand button from Publication Language', async function () {
     return await element.click();
 });
 
-When('I set value {kraken-string} into input Publication Language', async function (text) {
-    let element = await this.driver.$(languageSelector);
-    return await element.setValue(text);
-});
-
 When('I get text value in Publication Language', async function () {
     languageValue = await this.driver.$(languageSelector).getValue();
+});
+
+When('I set value {string} into input Publication Language', async function (text) {
+    let element = await this.driver.$(languageSelector);
+    return await element.setValue(text);
 });
 
 When('I restore default value into input Publication Language', async function () {
@@ -22,7 +22,7 @@ When('I restore default value into input Publication Language', async function (
     return await element.setValue(languageValue);
 });
 
-Then('I check text {kraken-string} in Publication Language', async function (text) {
+Then('I check text {string} in Publication Language', async function (text) {
     let elementValue = await this.driver.$(languageSelector).getValue();
     expect(elementValue).to.equal(text);
 });

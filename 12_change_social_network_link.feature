@@ -2,7 +2,7 @@ Feature: General Settings
 
   @user1 @web
   Scenario: Modificar los enlaces a las redes sociales
-    Given I navigate to page "<RUTA>"
+    Given I navigate to page "<ADMIN_URL>"
     And I wait for 1 seconds to take a screenshot
     When I enter email "<USER>"
     And I wait for 1 seconds to take a screenshot

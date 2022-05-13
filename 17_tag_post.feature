@@ -2,7 +2,7 @@ Feature: Posts
 
   @user1 @web
   Scenario: Asignar una tag a un post
-    Given I navigate to page "<RUTA>"
+    Given I navigate to page "<ADMIN_URL>"
     And I wait for 1 seconds to take a screenshot
     When I enter email "<USER>"
     And I wait for 1 seconds to take a screenshot

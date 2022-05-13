@@ -12,7 +12,7 @@ When('I get text value in Description', async function () {
     descriptionValue = await this.driver.$(descriptionSelector).getValue();
 });
 
-When('I set value {kraken-string} into input Description', async function (text) {
+When('I set value {string} into input Description', async function (text) {
     let element = await this.driver.$(descriptionSelector);
     return await element.setValue(text);
 });
@@ -22,7 +22,7 @@ When('I restore default value into input Description', async function () {
     return await element.setValue(descriptionValue);
 });
 
-Then('I check text {kraken-string} in Description', async function (text) {
+Then('I check text {string} in Description', async function (text) {
     let elementValue = await this.driver.$(descriptionSelector).getValue();
     expect(elementValue).to.equal(text);
 });

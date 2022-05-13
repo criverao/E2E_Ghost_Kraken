@@ -17,7 +17,7 @@ When('I get text value in Title', async function () {
     titleValue = await this.driver.$(titleSelector).getValue();
 });
 
-When('I set value {kraken-string} into input Title', async function (text) {
+When('I set value {string} into input Title', async function (text) {
     let element = await this.driver.$(titleSelector);
     return await element.setValue(text);
 });
@@ -27,7 +27,7 @@ When('I restore default value into input Title', async function () {
     return await element.setValue(titleValue);
 });
 
-Then('I check text {kraken-string} in Title', async function (text) {
+Then('I check text {string} in Title', async function (text) {
     let elementValue = await this.driver.$(titleSelector).getValue();
     expect(elementValue).to.equal(text);
 });

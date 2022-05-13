@@ -2,7 +2,7 @@ Feature: General Settings
 
   @user1 @web
   Scenario: Edit general configurations for publication info
-    Given I navigate to page "<RUTA>"
+    Given I navigate to page "<ADMIN_URL>"
     And I wait for 1 seconds to take a screenshot
     And I enter email "<USER>"
     And I wait for 1 seconds to take a screenshot
@@ -36,10 +36,11 @@ Feature: General Settings
     And I click on Save button
     And I wait for 1 seconds to take a screenshot
     # Comment -> When finished editing general configurations for publication info
+    # Comment -> Then I check the fields were updated
     Then I check text "The Software Design Company (edited)" in Title
     And I check text "Thoughts, stories and ideas. (edited)" in Description
     And I check text "es" in Publication Language
-    # Comment -> Then I check the fields were updated, and I restore theirs initial values
+    # Comment -> And I restore theirs initial values
     And I restore default value into input Title
     And I restore default value into input Description
     And I select the Timezone option "America/Bogota"

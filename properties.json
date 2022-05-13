@@ -1,4 +1,3 @@
-
 {
     "USER": "ch.garciaa1@uniandes.edu.co",
     "PASSWORD": "8AMkXvzgf.L48ts",
@@ -10,5 +9,6 @@
     "POSTTITLE": "prueba de post",
     "POSTTITLE2": "prueba de post 2",
     "POSTDESC": "Descripción del tag",
-    "RUTA": "http://localhost:2368/ghost/"
+    "ADMIN_URL": "http://localhost:2368/ghost/",
+    "PUBLIC_URL": "http://localhost:2368"
 }

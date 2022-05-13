@@ -1,13 +1,5 @@
 const {Given, When} = require("@cucumber/cucumber");
 
-Given('I navigate to administration page', async function () {
-    return await this.driver.url("http://localhost:2368/ghost/#/signin");
-});
-
-Given('I navigate to page public page', async function () {
-    return await this.driver.url("http://localhost:2368/");
-});
-
 When('I click on Staff Save button', async function () {
     let element = await this.driver.$("//button[@class='gh-btn gh-btn-primary gh-btn-icon ember-view']");
     return await element.click();
@@ -59,10 +51,7 @@ When('I click on input Content page', async function () {
     let element = await this.driver.$("(//div[@data-kg='editor'])[1]");
     return await element.click();
 });
-When('I click on input Full name', async function () {
-    let element = await this.driver.$("(//input[@type='text'])[1]");
-    return await element.click();
-});
+
 
 When('I click on select Tags', async function () {
     let element = await this.driver.$("//div[@class='form-group']//input[@type='search']");
@@ -89,18 +78,10 @@ When('I deselect a selected tag', async function () {
     return await element.click();
 });
 
-When('I click on Make this site private', async function () {
-    let element = await this.driver.$("(//span[@class='input-toggle-component'])[1]");
-    return await element.click();
-});
+
 
 When('I click on Sign out item menu', async function () {
     let element = await this.driver.$("/html[1]/body[1]/div[1]/div[1]/ul[1]/li[9]/a[1]");
-    return await element.click();
-});
-
-When('I click on Your profile item menu', async function () {
-    let element = await this.driver.$('/html[1]/body[1]/div[1]/div[1]/ul[1]/li[4]/a[1]');
     return await element.click();
 });
 
@@ -108,16 +89,6 @@ When('I click on the button having id {string}', async function (button) {
     let element = await this.driver.$('#' + button);
     return await element.click();
 });
-
-/*When('I see list of post', async function () {
-    let elements = await this.driver.$$("//li[5]");
-    let emailWasReceived = elements.length > 0;
-    expect(emailWasReceived).to.equal(true);
-});*/
-/*When('I click on link having href {string}', async function (href) {
-    let element = await this.driver.$(`a[href="${href}"]`);
-    return await element.click();
-});*/
 
 When('I select a Post', async function () {
     let elements = await this.driver.$$("body > div:nth-child(4) > div:nth-child(3) > main:nth-child(2) > section:nth-child(1) > section:nth-child(2) > ol:nth-child(1) > li:nth-child(2) > a:nth-child(1)");
