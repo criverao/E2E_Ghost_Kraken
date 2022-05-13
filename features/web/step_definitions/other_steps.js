@@ -68,17 +68,20 @@ When('I click on tag filter', async function () {
     return await element.click();
 });
 
+When('I click on tags input', async function () {
+    let element = await this.driver.$("(//input[@type='search'])[1]");
+    return await element.click();
+});
+
 When('I filter post by All tags', async function () {
     let element = await this.driver.$("//li[@aria-current='true']");
     return await element.click();
 });
 
 When('I deselect a selected tag', async function () {
-    let element = await this.driver.$("/html[1]/body[1]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[3]/div[1]/div[1]/ul[1]/li[1]");
-    return await element.click();
+    let element = await this.driver.$("(//input[@type='search'])[1]");
+    return await element.keys("Backspace");
 });
-
-
 
 When('I click on Sign out item menu', async function () {
     let element = await this.driver.$("/html[1]/body[1]/div[1]/div[1]/ul[1]/li[9]/a[1]");

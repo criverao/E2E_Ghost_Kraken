@@ -31,4 +31,3 @@ Feature: Posts
     And I click on Profile button
     And I wait for 1 seconds to take a screenshot
     Then I click on Sign out item menu
-    And I wait for 1 seconds to take a screenshot

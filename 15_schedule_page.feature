@@ -15,7 +15,6 @@ Feature: Pages
     And I click on New "page" button
     And I wait for 1 seconds to take a screenshot
     And I click on input Page title
-    And I wait for 1 seconds to take a screenshot
     And I enter text "Creating a scheduled page"
     And I wait for 1 seconds to take a screenshot
     And I click on input Content page
@@ -34,7 +33,4 @@ Feature: Pages
     And I wait for 1 seconds to take a screenshot
     And I click on Profile button
     And I wait for 1 seconds to take a screenshot
-    And I click on Sign out item menu
-    And I wait for 1 seconds to take a screenshot
-    Then I navigate to page public page
-    And I wait for 1 seconds to take a screenshot
+    Then I click on Sign out item menu

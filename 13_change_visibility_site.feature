@@ -44,5 +44,5 @@ Feature: General Settings
     And I wait for 1 seconds to take a screenshot
     And I click on Make this site private
     And I wait for 1 seconds to take a screenshot
-    And I click on Save button
+    Then I click on Save button
     And I wait for 2 seconds to take a screenshot

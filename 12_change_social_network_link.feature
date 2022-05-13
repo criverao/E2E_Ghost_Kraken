@@ -18,11 +18,11 @@ Feature: General Settings
     And I wait for 1 seconds to take a screenshot
     And I click on input Facebook link
     And I wait for 1 seconds to take a screenshot
-    And I enter text "sss"
+    And I enter text "2"
     And I wait for 1 seconds to take a screenshot
     And I click on input Twitter link
     And I wait for 1 seconds to take a screenshot
-    And I enter text "sss"
+    And I enter text "2"
     And I wait for 1 seconds to take a screenshot
     And I click on Save button
     And I wait for 2 seconds to take a screenshot
