@@ -1,7 +1,7 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-const expect = require('chai').expect;
-
 const fs = require("fs");
+let appVersion = 'v4.41.3';
+//let appVersion = 'v3.42';
 let counter = 0;
 
 When('I just wait for {int} seconds', async function (seconds) {
@@ -12,7 +12,7 @@ When('I wait for {int} seconds to take a screenshot', async function (seconds) {
     counter += 1;
 
     let featureName = featureFileInPath('./features');
-    let dir = `./screenshots/${featureName}`;
+    let dir = `./screenshots/${appVersion}/${featureName}`;
 
     createFolderIfDoesNotExists(dir);
 

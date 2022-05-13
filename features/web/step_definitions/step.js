@@ -15,3 +15,7 @@ When('I confirm delete', async function () {
   let elements = await this.driver.$$(`div.modal-footer > button.gh-btn-red`);
   return await elements[0].click();
 });
+
+When('I enter the text {string}', async function (text) {
+  return await this.driver.keys(text);
+});
