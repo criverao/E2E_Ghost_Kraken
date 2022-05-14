@@ -10,5 +10,8 @@
     "POSTTITLE2": "prueba de post 2",
     "POSTDESC": "Descripción del tag",
     "ADMIN_URL": "http://localhost:2368/ghost/",
-    "PUBLIC_URL": "http://localhost:2368"
+    "PUBLIC_URL": "http://localhost:2368",
+    "appVersion": "v4.41.3",
+    "skipWaiting": 0,
+    "takeScreenshots": 1
 }

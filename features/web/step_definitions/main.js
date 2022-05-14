@@ -1,13 +1,14 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
+const properties = require("../../../properties.json");
 const fs = require("fs");
-let appVersion = 'v4.41.3';
-//let appVersion = 'v3.42';
+
+const skipWaiting = properties.skipWaiting;
+const takeScreenshots = properties.takeScreenshots;
+let appVersion = properties.appVersion.replace(".","_");
 let counter = 0;
-const skipWaits = 0;
-const takeScreenshots = 0;
 
 When('I click on Settings button', async function () {
-    if (appVersion === 'v3.42') {
+    if (appVersion === 'v3_42') {
         return;
     }
     let element = await this.driver.$(`a[href="#/settings/"]`);
@@ -24,10 +25,10 @@ When('I just wait for {int} seconds', async function (seconds) {
 });
 
 When('I wait for {int} seconds to take a screenshot', async function (seconds) {
-    if (skipWaits) return true;
+    if (skipWaiting) return true;
     counter += 1;
 
-    let featureName = featureFileInPath('./features');
+    let featureName = featureFileInPath('./features')[0].split(".")[0];
     let dir = `./screenshots/${appVersion}/${featureName}`;
 
     createFolderIfDoesNotExists(dir);
