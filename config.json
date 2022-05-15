@@ -14,7 +14,7 @@
     "scaleToSameSize": true,
     "ignore": "antialiasing"
   },
-  "folder1": "/screenshots/v3_42/20_login",
-  "folder2": "/screenshots/v4_41_3/20_login",
-  "resultsFolder": "/screenshots/results/20_login"
+  "folder1": "/screenshots/v4_41_3/11_change_general_settings",
+  "folder2": "/screenshots/v3_42/11_change_general_settings",
+  "resultsFolder": "/screenshots/results/11_change_general_settings"
 }
