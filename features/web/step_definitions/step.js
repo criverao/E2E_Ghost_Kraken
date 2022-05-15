@@ -1,8 +1,14 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-const expect = require('chai').expect;
+
+const properties = require("../../../properties.json");
+let appVersion = properties.appVersion.replace(/\./g,"_");
+
+const buttonSaveSelector = (appVersion === 'v3_42') ?
+    "//main[@role='main']//section//header//section//button" :
+    "//body//div//div//main//section//div//header//section//button";
 
 When('I click on Save button', async function () {
-  let element = await this.driver.$("//body//div//div//main//section//div//header//section//button");
+  let element = await this.driver.$(buttonSaveSelector);
   return await element.click();
 });
 

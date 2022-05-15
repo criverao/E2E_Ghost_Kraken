@@ -1,10 +1,5 @@
 const {Given, When} = require("@cucumber/cucumber");
 
-When('I click on Staff Save button', async function () {
-    let element = await this.driver.$("//button[@class='gh-btn gh-btn-primary gh-btn-icon ember-view']");
-    return await element.click();
-});
-
 When('I click on Post settings button', async function () {
     let element = await this.driver.$("//button[@title='Settings']");
     return await element.click();
