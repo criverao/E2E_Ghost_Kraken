@@ -5,7 +5,7 @@ let appVersion = properties.appVersion.replace(/\./g,"_");
 
 const buttonSaveSelector = (appVersion === 'v3_42') ?
     "//main[@role='main']//section//header//section//button" :
-    "//body//div//div//main//section//div//header//section//button";
+    "body > div.gh-app > div > main > section > div.gh-canvas-header > header > section > button";
 
 When('I click on Save button', async function () {
   let element = await this.driver.$(buttonSaveSelector);

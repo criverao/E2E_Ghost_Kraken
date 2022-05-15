@@ -60,11 +60,11 @@ function row(step, info){
         <div class="imgline">
           <div class="imgcontainer">
             <span class="imgname">Reference</span>
-            <img class="img2" src="${folder1}/${step}.png" id="refImage" alt="Reference">
+            <img class="img2" src=../../..${folder1}/${step}.png" id="refImage" alt="Reference">
           </div>
           <div class="imgcontainer">
             <span class="imgname">Test</span>
-            <img class="img2" src="${folder2}/${step}.png" id="testImage" alt="Test">
+            <img class="img2" src=../../..${folder2}/${step}.png" id="testImage" alt="Test">
           </div>
         </div>
         <div class="imgline">

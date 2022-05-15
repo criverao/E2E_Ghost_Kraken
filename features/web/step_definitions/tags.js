@@ -1,13 +1,31 @@
 const {When, Then} = require("@cucumber/cucumber");
 const {expect} = require("chai");
+const properties = require("../../../properties.json");
+let appVersion = properties.appVersion.replace(/\./g,"_");
 
-When('I click Tags', async function () {
-    let elements = await this.driver.$$("body > div.gh-app > div > nav.gh-nav > div > section > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage > li:nth-child(3) > a");
+const tagsSelector = (appVersion === 'v3_42') ?
+    "body > div.gh-app > div > nav.gh-nav > section > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage > li:nth-child(4)" :
+    "body > div.gh-app > div > nav.gh-nav > div > section > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage > li:nth-child(3) > a";
+
+const newTagSelector = (appVersion === 'v3_42') ?
+    "body > div.gh-app > div > main > section > header > section > a.gh-btn-green" :
+    "body > div.gh-app > div > main > section > div > header > section > a.gh-btn-primary";
+
+const saveTagSelector = (appVersion === 'v3_42') ?
+    "body > div.gh-app > div > main > section > form > header > section > button" :
+    "body > div.gh-app > div > main > section > form > div.gh-canvas-header > header > section > button";
+
+const deleteTagSelector = (appVersion === 'v3_42') ?
+    "body > div.gh-app > div > main > section > button" :
+    "body > div.gh-app > div > main > section > div > button";
+
+    When('I click Tags', async function () {
+    let elements = await this.driver.$$(tagsSelector);
     return await elements[0].click();
 });
 
 When('I click New Tag', async function () {
-    let elements = await this.driver.$$("body > div.gh-app > div > main > section > div > header > section > a.gh-btn-primary");
+    let elements = await this.driver.$$(newTagSelector);
     return await elements[0].click();
 });
 
@@ -23,7 +41,7 @@ Then('the new tag exists {kraken-string}', async function (tagName) {
 });
 
 When('I click save tag button', async function () {
-    let elements = await this.driver.$$("body > div.gh-app > div > main > section > form > div.gh-canvas-header > header > section > button");
+    let elements = await this.driver.$$(saveTagSelector);
     return await elements[0].click();
 });
 
@@ -44,7 +62,7 @@ Then('the tag desc exists {kraken-string}', async function (tagDesc) {
 });
 
 When('I click on delete tag', async function () {
-    let elements = await this.driver.$$(`body > div.gh-app > div > main > section > div > button`);
+    let elements = await this.driver.$$(deleteTagSelector);
     return await elements[0].click();
 });
 

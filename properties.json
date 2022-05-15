@@ -1,6 +1,6 @@
 {
     "USER": "ch.garciaa1@uniandes.edu.co",
-    "PASSWORD": "8AMkXvzgf.L48ts",
+    "PASSWORD": "Thmngrefb1$",
     "NAME": "CESAR PRUEBA",
     "EMAIL": "cesa96@gmail.com",
     "EMAIL2": "cesa96Actualizado@gmail.com",
@@ -11,7 +11,7 @@
     "POSTDESC": "Descripción del tag",
     "ADMIN_URL": "http://localhost:2368/ghost/",
     "PUBLIC_URL": "http://localhost:2368",
-    "appVersion": "v4.41.3",
+    "appVersion": "v3.42",
     "skipWaiting": 0,
     "takeScreenshots": 1
 }
