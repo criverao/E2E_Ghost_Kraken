@@ -4,7 +4,7 @@ const properties = require("../../../properties.json");
 
 const skipWaiting = properties.skipWaiting;
 const takeScreenshots = properties.takeScreenshots;
-let appVersion = properties.appVersion.replace(".","_");
+let appVersion = properties.appVersion.replace(/\./g,"_");
 let counter = 0;
 
 When('I click on Settings button', async function () {

@@ -1,7 +1,7 @@
 const {When, Then} = require("@cucumber/cucumber");
 const {expect} = require("chai");
 const properties = require("../../../properties.json");
-let appVersion = properties.appVersion.replace(".","_");
+let appVersion = properties.appVersion.replace(/\./g,"_");
 
 let languageValue = '';
 const languageSelector = "(//input[@type='text'])[3]";

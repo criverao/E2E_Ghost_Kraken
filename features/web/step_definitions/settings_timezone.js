@@ -1,7 +1,7 @@
 const {When} = require("@cucumber/cucumber");
 const properties = require("../../../properties.json");
 
-let appVersion = properties.appVersion.replace(".","_");
+let appVersion = properties.appVersion.replace(/\./g,"_");
 
 const expandSelector = (appVersion === 'v3_42') ? "(//button[@type='button'])[3]" : "(//button[@type='button'])[4]";
 

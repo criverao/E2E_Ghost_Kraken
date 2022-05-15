@@ -2,7 +2,7 @@ const {Then, When} = require("@cucumber/cucumber");
 const {expect} = require("chai");
 const properties = require("../../../properties.json");
 
-let appVersion = properties.appVersion.replace(".","_");
+let appVersion = properties.appVersion.replace(/\./g,"_");
 let titleValue = '';
 const expandSelector = (appVersion === 'v3_42') ? "(//button[@type='button'])[2]" : "(//button[@type='button'])[3]";
 const titleSelector = "(//input[@type='text'])[1]";

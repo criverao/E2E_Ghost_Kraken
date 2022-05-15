@@ -20,14 +20,14 @@ Feature: Posts
     And I wait for 1 seconds to take a screenshot
     And I select a tag
     And I wait for 1 seconds to take a screenshot
+    And I click on Post settings button
+    And I wait for 1 seconds to take a screenshot
     And I click on Publish dropdown menu
     And I wait for 1 seconds to take a screenshot
     And I click on Publish button
     And I wait for 1 seconds to take a screenshot
-    And I click on confirmation alert Publish button
-    And I wait for 3 seconds to take a screenshot
     And I click on "posts" menu
-    And I wait for 3 seconds to take a screenshot
+    And I wait for 6 seconds to take a screenshot
     And I click on Profile button
     And I wait for 1 seconds to take a screenshot
     Then I click on Sign out item menu

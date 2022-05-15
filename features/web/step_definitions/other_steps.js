@@ -52,15 +52,19 @@ When('I click on input Content page', async function () {
     return await element.click();
 });
 
-
 When('I click on select Tags', async function () {
     let element = await this.driver.$("//div[@class='form-group']//input[@type='search']");
     return await element.click();
 });
 
-When('I select a tag', async function () {
+/*When('I select a tag', async function () {
     let element = await this.driver.$("//li[normalize-space()='#internal']");
     return await element.click();
+});*/
+When('I select a tag', async function () {
+    let element = await this.driver.$("(//input[@type='search'])[1]");
+    await element.keys("ArrowDown");
+    return await element.keys("Enter");
 });
 
 When('I click on tag filter', async function () {
