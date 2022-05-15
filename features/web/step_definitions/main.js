@@ -1,6 +1,6 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-const properties = require("../../../properties.json");
 const fs = require("fs");
+const properties = require("../../../properties.json");
 
 const skipWaiting = properties.skipWaiting;
 const takeScreenshots = properties.takeScreenshots;

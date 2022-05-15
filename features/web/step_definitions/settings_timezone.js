@@ -1,7 +1,12 @@
 const {When} = require("@cucumber/cucumber");
+const properties = require("../../../properties.json");
+
+let appVersion = properties.appVersion.replace(".","_");
+
+const expandSelector = (appVersion === 'v3_42') ? "(//button[@type='button'])[3]" : "(//button[@type='button'])[4]";
 
 When('I click on Expand button from Site timezone', async function () {
-    let element = await this.driver.$("(//button[@type='button'])[4]");
+    let element = await this.driver.$(expandSelector);
     return await element.click();
 });
 

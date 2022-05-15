@@ -1,10 +1,14 @@
 const {Then, When} = require("@cucumber/cucumber");
 const {expect} = require("chai");
+const properties = require("../../../properties.json");
+
+let appVersion = properties.appVersion.replace(".","_");
 let titleValue = '';
+const expandSelector = (appVersion === 'v3_42') ? "(//button[@type='button'])[2]" : "(//button[@type='button'])[3]";
 const titleSelector = "(//input[@type='text'])[1]";
 
 When('I click on Expand button from Title & Description', async function () {
-    let element = await this.driver.$("(//button[@type='button'])[3]");
+    let element = await this.driver.$(expandSelector);
     return await element.click();
 });
 

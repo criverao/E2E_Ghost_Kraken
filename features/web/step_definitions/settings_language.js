@@ -1,10 +1,14 @@
 const {When, Then} = require("@cucumber/cucumber");
 const {expect} = require("chai");
+const properties = require("../../../properties.json");
+let appVersion = properties.appVersion.replace(".","_");
+
 let languageValue = '';
 const languageSelector = "(//input[@type='text'])[3]";
+const expandSelector = (appVersion === 'v3_42') ? "(//button[@type='button'])[4]" : "(//button[@type='button'])[5]";
 
 When('I click on Expand button from Publication Language', async function () {
-    let element = await this.driver.$("(//button[@type='button'])[5]");
+    let element = await this.driver.$(expandSelector);
     return await element.click();
 });
 
