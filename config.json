@@ -14,7 +14,7 @@
     "scaleToSameSize": true,
     "ignore": "antialiasing"
   },
-  "folder1": "/screenshots/v4_41_3/06_tag_delete",
-  "folder2": "/screenshots/v3_42/06_tag_delete",
-  "resultsFolder": "/screenshots/results/06_tag_delete"
+  "folder1": "/screenshots/v4_41_3/04_tag_create",
+  "folder2": "/screenshots/v3_42/04_tag_create",
+  "resultsFolder": "/screenshots/results/04_tag_create"
 }
