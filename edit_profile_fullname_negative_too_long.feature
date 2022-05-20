@@ -17,7 +17,7 @@ Feature: Edición de perfil de Staff
     And I wait for 1 seconds to take a screenshot
 
     And I get text value in "Full name"
-    And I set data from pool into input "Full name"
+    And I set value from data pool into input "Full name"
     And I wait for 1 seconds to take a screenshot
 
     And I click on Save button

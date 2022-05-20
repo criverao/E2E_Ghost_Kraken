@@ -28,9 +28,11 @@ When('I click on input {string}', async function (inputName) {
 When('I get text value in {string}', async function (inputName) {
     let selector = selectors[inputName];
     initialValues[inputName] = await this.driver.$(selector).getValue();
+    console.log("Initial VALUE FOR SLUG: " + initialValues[inputName]);
+    return initialValues[inputName];
 });
 
-When('I set data from pool into input {string}', async function (inputName) {
+When('I set value from data pool into input {string}', async function (inputName) {
     let selector = selectors[inputName];
     let element = await this.driver.$(selector);
     return element.setValue(dataPool[dataIndex][inputName]);
