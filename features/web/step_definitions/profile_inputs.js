@@ -28,7 +28,7 @@ When('I click on input {string}', async function (inputName) {
 When('I get text value in {string}', async function (inputName) {
     let selector = selectors[inputName];
     initialValues[inputName] = await this.driver.$(selector).getValue();
-    console.log("Initial VALUE FOR SLUG: " + initialValues[inputName]);
+    console.log("INITIAL VALUE FOR " + inputName + ": " + initialValues[inputName]);
     return initialValues[inputName];
 });
 
