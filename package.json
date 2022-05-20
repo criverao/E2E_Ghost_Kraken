@@ -19,6 +19,7 @@
   "homepage": "https://github.com/criverao/E2E_Ghost_Kraken#readme",
   "dependencies": {
     "kraken-node": "^1.0.24",
+    "mockaroo": "^0.1.7",
     "resemblejs": "^4.1.0"
   },
   "devDependencies": {
