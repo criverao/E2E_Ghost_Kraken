@@ -1,11 +1,37 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const fs = require("fs");
 const properties = require("../../../properties.json");
+const {expect} = require("chai");
 
 const skipWaiting = properties.skipWaiting;
 const takeScreenshots = properties.takeScreenshots;
 let appVersion = properties.appVersion.replace(/\./g,"_");
 let counter = 0;
+
+const buttonSaveSelector = (appVersion === 'v3_42') ?
+    "//main[@role='main']//section//header//section//button" :
+    "body > div.gh-app > div > main > section > div.gh-canvas-header > header > section > button";
+
+const retryButtonSelector = "//span[normalize-space()='Retry']";
+
+When('I refresh the current page', async function () {
+    await this.driver.refresh();
+});
+
+When('I click on Profile button', async function () {
+    let element = await this.driver.$("(//div[@role='button'])[1]");
+    return await element.click();
+});
+
+When('I click on Save button', async function () {
+    let element = await this.driver.$(buttonSaveSelector);
+    return await element.click();
+});
+
+Then('I expect a Retry button', async function () {
+    let elementValue = await this.driver.$(retryButtonSelector).getText();
+    expect(elementValue).to.equal('Retry');
+});
 
 When('I click on Settings button', async function () {
     if (appVersion === 'v3_42') {

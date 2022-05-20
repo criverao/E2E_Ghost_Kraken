@@ -1,11 +1,6 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const expect = require('chai').expect;
 
-When('I click on Profile button', async function () {
-    let element = await this.driver.$("(//div[@role='button'])[1]");
-    return await element.click();
-});
-
 When('I click on Your profile item menu', async function () {
     let element = await this.driver.$('/html[1]/body[1]/div[1]/div[1]/ul[1]/li[4]/a[1]');
     return await element.click();
