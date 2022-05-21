@@ -51,9 +51,8 @@ Then('I expect text was not updated in {string}', async function (inputName) {
 });
 
 Then('I expect error message {string}', async function (error) {
-    let elementValue = await this.driver.$("//div[@class='first-form-group form-group error ember-view']//p[@class='response']").getText();
+    let elementValue = await this.driver.$(`//p[normalize-space()='${error}']`).getText();
     expect(elementValue).to.equal(error);
-    //expect(elementValue).to.include(error);
 });
 
 Then('I restore initial value into input {string}', async function (inputName) {

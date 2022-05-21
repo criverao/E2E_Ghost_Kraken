@@ -16,8 +16,8 @@ Feature: Edición de perfil de Staff
     And I click on Your profile item menu
     And I wait for 1 seconds to take a screenshot
 
-    And I get text value in "Full name"
-    And I set value from data pool into input "Full name"
+    And I get text value in "Email"
+    And I set value from data pool into input "Email"
     And I wait for 1 seconds to take a screenshot
 
     And I click on Save button
@@ -26,9 +26,9 @@ Feature: Edición de perfil de Staff
     # Comment -> Then I check the fields were updated
 
     Then I expect a Retry button
-    And I expect error message "Name is too long"
+    And I expect error message "Please supply a valid email address"
 
     # Comment -> And I restore theirs initial values
-    And I restore initial value into input "Full name"
+    And I restore initial value into input "Email"
     And I click on Save button
     And I wait for 2 seconds to take a screenshot
