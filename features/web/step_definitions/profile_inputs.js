@@ -10,13 +10,16 @@ let initialValues = {
     'Full name': "",
     'Slug': "",
     'Email': "",
-    'Location': ""
+    'Location': "",
+    'Bio': ""
 };
+
 let selectors = {
     'Full name': "(//input[@type='text'])[1]",
     'Slug': "(//input[@type='text'])[2]",
     'Email': "(//input[@type='email'])[1]",
-    'Location': "(//input[@type='text'])[3]"
+    'Location': "(//input[@type='text'])[3]",
+    'Bio': "(//textarea)[1]"
 }
 
 When('I click on input {string}', async function (inputName) {
