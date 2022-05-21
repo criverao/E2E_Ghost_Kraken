@@ -11,7 +11,7 @@
     "POSTDESC": "Descripción del tag",
     "ADMIN_URL": "http://localhost:2368/ghost/",
     "PUBLIC_URL": "http://localhost:2368",
-    "appVersion": "v3.42",
+    "appVersion": "v4.41.3",
     "skipWaiting": 0,
     "takeScreenshots": 1
 }

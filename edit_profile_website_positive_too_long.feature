@@ -25,7 +25,7 @@ Feature: Edición de perfil de Staff
     # Comment -> When finished editing user's profile
     # Comment -> Then I check the fields were updated
 
-    Then I expect a "Save" button
+    Then I expect a "Saved" button
 
     # Comment -> And I restore theirs initial values
     And I restore initial value into input "Website"

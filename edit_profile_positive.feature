@@ -36,7 +36,8 @@ Feature: Edición de perfil de Staff
     And I wait for 1 seconds to take a screenshot
     # Comment -> When finished editing user's profile
     # Comment -> Then I check the fields were updated
-    Then I refresh the current page
+    Then I expect a "Saved" button
+    And I refresh the current page
     And I wait for 5 seconds to take a screenshot
     And I check text updated in "Full name"
     And I check text updated in "Slug"
