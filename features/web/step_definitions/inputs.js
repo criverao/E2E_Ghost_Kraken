@@ -10,10 +10,11 @@ let dataPoolFile = `../../../data_pools/${featureName}.json`;
 
 let dataPool;
 
-if (fs.existsSync(dataPoolFile)) {
+try {
     dataPool = require(dataPoolFile);
-} else {
+} catch (ex) {
     dataPool = {};
+    console.log("Data pool file doesn't exist. Importing file skipped. " + ex)
 }
 
 let dataIndex = getRandomInt(0, dataPool.length);
