@@ -37,7 +37,7 @@ Feature: Edición de perfil de Staff
     And I wait for 1 seconds to take a screenshot
     # Comment -> When finished editing user's profile
     # Comment -> Then I check the fields were updated
-    Then I expect a Retry button
+    Then I expect a "Retry" button
     And I wait for 1 seconds to take a screenshot
 
     # Comment -> And I restore theirs initial values

@@ -25,7 +25,7 @@ Feature: Edición de perfil de Staff
     # Comment -> When finished editing user's profile
     # Comment -> Then I check the fields were updated
 
-    Then I expect a Retry button
+    Then I expect a "Retry" button
     And I expect error message "Please supply a valid email address"
 
     # Comment -> And I restore theirs initial values

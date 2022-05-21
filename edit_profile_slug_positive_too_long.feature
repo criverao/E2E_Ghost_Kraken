@@ -16,8 +16,8 @@ Feature: Edición de perfil de Staff
     And I click on Your profile item menu
     And I wait for 1 seconds to take a screenshot
 
-    And I get text value in "Location"
-    And I set value from data pool into input "Location"
+    And I get text value in "Slug"
+    And I set value from data pool into input "Slug"
     And I wait for 1 seconds to take a screenshot
 
     And I click on Save button
@@ -25,10 +25,9 @@ Feature: Edición de perfil de Staff
     # Comment -> When finished editing user's profile
     # Comment -> Then I check the fields were updated
 
-    Then I expect a Retry button
-    And I expect error message "Location is too long"
+    Then I expect a "Saved" button
 
     # Comment -> And I restore theirs initial values
-    And I restore initial value into input "Location"
+    And I restore initial value into input "Slug"
     And I click on Save button
     And I wait for 2 seconds to take a screenshot

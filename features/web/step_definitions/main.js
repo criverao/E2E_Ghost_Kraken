@@ -12,8 +12,6 @@ const buttonSaveSelector = (appVersion === 'v3_42') ?
     "//main[@role='main']//section//header//section//button" :
     "body > div.gh-app > div > main > section > div.gh-canvas-header > header > section > button";
 
-const retryButtonSelector = "//span[normalize-space()='Retry']";
-
 When('I refresh the current page', async function () {
     await this.driver.refresh();
 });
@@ -28,9 +26,9 @@ When('I click on Save button', async function () {
     return await element.click();
 });
 
-Then('I expect a Retry button', async function () {
-    let elementValue = await this.driver.$(retryButtonSelector).getText();
-    expect(elementValue).to.equal('Retry');
+Then('I expect a {string} button', async function (type) {
+    let elementValue = await this.driver.$(`//span[normalize-space()='${type}']`).getText();
+    expect(elementValue).to.equal(type);
 });
 
 When('I click on Settings button', async function () {
