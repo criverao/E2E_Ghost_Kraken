@@ -11,6 +11,7 @@ let initialValues = {
     'Slug': "",
     'Email': "",
     'Location': "",
+    'Website': "",
     'Bio': ""
 };
 
@@ -19,6 +20,7 @@ let selectors = {
     'Slug': "(//input[@type='text'])[2]",
     'Email': "(//input[@type='email'])[1]",
     'Location': "(//input[@type='text'])[3]",
+    'Website': "(//input[@type='url'])[1]",
     'Bio': "(//textarea)[1]"
 }
 
