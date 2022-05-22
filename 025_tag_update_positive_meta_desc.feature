@@ -20,4 +20,4 @@ Scenario: Actualizar correo miembro
     And I wait for 1 seconds to take a screenshot
     And I click save tag button
     And I wait for 2 seconds to take a screenshot
-    Then I expect a Retry button tag
+    Then I not expect a Retry button tag
