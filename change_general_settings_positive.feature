@@ -18,6 +18,7 @@ Feature: General Settings
 
     And I click on Expand button from "Title and Description"
     And I wait for 1 seconds to take a screenshot
+
     And I get text value in "Title"
     And I set value "$name_1" into input "Title"
     And I wait for 1 seconds to take a screenshot

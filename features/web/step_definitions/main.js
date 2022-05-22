@@ -27,7 +27,8 @@ When('I click on Save button', async function () {
 });
 
 Then('I expect a {string} button', async function (type) {
-    let elementValue = await this.driver.$(`//span[normalize-space()='${type}']`).getText();
+    let selector = await (`//span[normalize-space()='${type}']`);
+    let elementValue = await this.driver.$(selector).getText();
     expect(elementValue).to.equal(type);
 });
 
