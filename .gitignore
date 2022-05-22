@@ -173,6 +173,7 @@ $RECYCLE.BIN/
 # Kraken
 *.kraken
 reports
+screenshots
 
 # Idea
 .idea
