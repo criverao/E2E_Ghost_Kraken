@@ -35,9 +35,15 @@ let settingsInitialValues = {
     'Publication Language': ""
 }
 
+let pageInitialValues = {
+    "Page title": "",
+    "Content page": ""
+}
+
 let initialValues = {
     ...profileInitialValues,
-    ...settingsInitialValues
+    ...settingsInitialValues,
+    ...pageInitialValues
 }
 
 let profileSelectors = {
@@ -55,9 +61,15 @@ let settingsSelectors = {
     'Publication Language': "(//input[@type='text'])[3]"
 }
 
+let pageSelectors = {
+    "Page title": "//body//div//div//main//div//section//div//div//textarea",
+    "Content page": "(//div[@data-kg='editor'])[1]"
+}
+
 let selectors = {
     ...profileSelectors,
-    ...settingsSelectors
+    ...settingsSelectors,
+    ...pageSelectors
 }
 
 const expandButtonSelectors  = {
@@ -108,6 +120,36 @@ let fakerInputTypes = {
         },
         "too long": {
             length: 5000
+        }
+    },
+    'Page title': {
+        value: "",
+        "normal": {
+            length: 5
+        },
+        "lower": {
+            length: 1
+        },
+        "upper": {
+            length: 255
+        },
+        "too long": {
+            length: 256
+        }
+    },
+    'Content page': {
+        value: "",
+        "normal": {
+            length: 5
+        },
+        "lower": {
+            length: 1
+        },
+        "upper": {
+            length: 10
+        },
+        "too long": {
+            length: 20
         }
     }
 }
@@ -224,6 +266,16 @@ function fakerGenerator(limit, dataType, input) {
 
     if(dataType === 'string') {
         let fakeData = faker.datatype.string(fakerInputTypes[input][limit].length)
+        fakerInputTypes[input].value = fakeData;
+        return fakeData;
+    }
+    else if(dataType === 'sentence') {
+        let fakeData = faker.lorem.sentence(fakerInputTypes[input][limit].length)
+        fakerInputTypes[input].value = fakeData;
+        return fakeData;
+    }
+    else if(dataType === 'paragraphs') {
+        let fakeData = faker.lorem.paragraphs(fakerInputTypes[input][limit].length)
         fakerInputTypes[input].value = fakeData;
         return fakeData;
     }

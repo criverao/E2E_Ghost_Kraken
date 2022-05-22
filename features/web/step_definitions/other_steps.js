@@ -35,27 +35,11 @@ When('I click on New {string} button', async function (name) {
     return await element.click();
 });
 
-
-
-When('I click on input Page title', async function () {
-    let element = await this.driver.$("//body//div//div//main//div//section//div//div//textarea");
-    return await element.click();
-});
-
-When('I click on input Content page', async function () {
-    let element = await this.driver.$("(//div[@data-kg='editor'])[1]");
-    return await element.click();
-});
-
 When('I click on select Tags', async function () {
     let element = await this.driver.$("//div[@class='form-group']//input[@type='search']");
     return await element.click();
 });
 
-/*When('I select a tag', async function () {
-    let element = await this.driver.$("//li[normalize-space()='#internal']");
-    return await element.click();
-});*/
 When('I select a tag', async function () {
     let element = await this.driver.$("(//input[@type='search'])[1]");
     await element.keys("ArrowDown");
