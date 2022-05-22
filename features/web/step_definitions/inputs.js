@@ -75,7 +75,7 @@ const expandButtonSelectors  = {
 When('I click on input {string}', async function (inputName) {
     let selector = selectors[inputName]
     let element = await this.driver.$(selector);
-    return element.click();
+    return await element.click();
 });
 
 When('I click on Expand button from {string}', async function (button) {
@@ -87,13 +87,13 @@ When('I get text value in {string}', async function (inputName) {
     let selector = selectors[inputName];
     initialValues[inputName] = await this.driver.$(selector).getValue();
     console.log("INITIAL VALUE FOR " + inputName + ": " + initialValues[inputName]);
-    return initialValues[inputName];
+    return await initialValues[inputName];
 });
 
 When('I set value from data pool into input {string}', async function (inputName) {
     let selector = selectors[inputName];
     let element = await this.driver.$(selector);
-    return element.setValue(dataPool[dataIndex][inputName]);
+    return await element.setValue(dataPool[dataIndex][inputName]);
 });
 
 When('I set value {kraken-string} into input {string}', async function (text, inputName) {
@@ -128,7 +128,7 @@ Then('I expect error message {string}', async function (error) {
 Then('I restore initial value into input {string}', async function (inputName) {
     let selector = selectors[inputName];
     let element = await this.driver.$(selector);
-    return element.setValue(initialValues[inputName]);
+    return await element.setValue(initialValues[inputName]);
 });
 
 When('I click on select Timezone', async function () {

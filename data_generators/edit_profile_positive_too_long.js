@@ -8,23 +8,27 @@ let client = new Mockaroo.Client({
 let scriptName = path.basename(__filename).split(".")[0];
 
 client.generate({
-    count: 10,
+    count: 3,
     fields: [
         {
             name: 'Full name',
-            type: 'Full Name'
+            type: 'Regular Expression',
+            value: '\\w{191}'
         },
         {
             name: 'Slug',
-            type: 'Username'
+            type: 'Formula',
+            value: 'lower(/\\w{185}/.gen)'
         },
         {
             name: 'Email',
-            type: 'Email Address'
+            type: 'Formula',
+            value: "concat('username@mywebsite', /\\w{169}/.gen, '.com')"
         },
         {
             name: 'Location',
-            type: 'City'
+            type: 'Regular Expression',
+            value: '\\w{150}'
         }
     ]
 }).then(function(records) {
