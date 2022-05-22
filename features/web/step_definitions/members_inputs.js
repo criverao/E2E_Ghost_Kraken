@@ -3,7 +3,17 @@ const {expect} = require("chai");
 const fs = require("fs");
 
 let featureName = featureFileInPath('./features')[0].split(".")[0];
-const dataPool = require(`../../../data_pools/${featureName}.json`);
+let dataPoolFile = `../../../data_pools/${featureName}.json`;
+
+let dataPool;
+
+try {
+    dataPool = require(dataPoolFile);
+} catch (ex) {
+    dataPool = [{}];
+    console.log("Data pool file doesn't exist. Importing file skipped. " + ex)
+}
+
 let dataIndex = getRandomInt(0, dataPool.length);
 const retryButtonSelector = "//span[normalize-space()='Retry']";
 const retryButtonTagSelector = "body > div.gh-app > div > main > section > form > div.gh-canvas-header > header > section > button.gh-btn-red";

@@ -4,8 +4,19 @@ const fs = require("fs");
 const properties = require("../../../properties.json");
 let appVersion = properties.appVersion.replace(/\./g,"_");
 const { faker } = require('@faker-js/faker');
+
 let featureName = featureFileInPath('./features')[0].split(".")[0];
-const dataPool = require(`../../../data_pools/${featureName}.json`);
+let dataPoolFile = `../../../data_pools/${featureName}.json`;
+
+let dataPool;
+
+try {
+    dataPool = require(dataPoolFile);
+} catch (ex) {
+    dataPool = [{}];
+    console.log("Data pool file doesn't exist. Importing file skipped. " + ex)
+}
+
 let dataIndex = getRandomInt(0, dataPool.length);
 
 
