@@ -12,11 +12,8 @@ client.generate({
     fields: [
         {
             name: 'Website',
-            type: 'URL',
-            includeHost: true,
-            includePath: true,
-            includeProtocol:true,
-            includeQueryString: true
+            type: 'Formula',
+            value: "concat('https://www.mywebsite.com/', /\\w{1974}/.gen)"
         }
     ]
 }).then(function(records) {

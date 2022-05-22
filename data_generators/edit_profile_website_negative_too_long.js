@@ -12,8 +12,8 @@ client.generate({
     fields: [
         {
             name: 'Website',
-            type: 'Regular Expression',
-            value: '\\w{2001}'
+            type: 'Formula',
+            value: "concat('https://www.mywebsite.com/', /\\w{1975}/.gen)"
         }
     ]
 }).then(function(records) {
