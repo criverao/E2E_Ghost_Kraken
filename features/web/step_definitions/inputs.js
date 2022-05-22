@@ -1,4 +1,5 @@
 const {When, Then} = require("@cucumber/cucumber");
+const { faker } = require('@faker-js/faker');
 const {expect} = require("chai");
 const fs = require("fs");
 
@@ -31,7 +32,7 @@ let profileInitialValues = {
 let settingsInitialValues = {
     'Title': "",
     'Description': "",
-    'Language': ""
+    'Publication Language': ""
 }
 
 let initialValues = {
@@ -72,6 +73,45 @@ const expandButtonSelectors  = {
     }
 };
 
+let fakerInputTypes = {
+    'Title': {
+        value: "",
+        "lower": {
+            length: 1
+        },
+        "upper": {
+            length: 150
+        },
+        "too long": {
+            length: 151
+        }
+    },
+    'Description': {
+        value: "",
+        "lower": {
+            length: 1
+        },
+        "upper": {
+            length: 200
+        },
+        "too long": {
+            length: 201
+        }
+    },
+    'Publication Language': {
+        value: "",
+        "lower": {
+            length: 1
+        },
+        "upper": {
+            length: 150
+        },
+        "too long": {
+            length: 5000
+        }
+    }
+}
+
 When('I click on input {string}', async function (inputName) {
     let selector = selectors[inputName]
     let element = await this.driver.$(selector);
@@ -90,6 +130,7 @@ When('I get text value in {string}', async function (inputName) {
     return await initialValues[inputName];
 });
 
+// ************* Steps to Set values ************* //
 When('I set value from data pool into input {string}', async function (inputName) {
     let selector = selectors[inputName];
     let element = await this.driver.$(selector);
@@ -102,6 +143,14 @@ When('I set value {kraken-string} into input {string}', async function (text, in
     return await element.setValue(text);
 });
 
+When('I set {string} {string} value on runtime into input {string}', async function (limit, dataType, inputName) {
+    let selector = selectors[inputName];
+    let element = await this.driver.$(selector);
+    const fakerData = fakerGenerator(limit, dataType, inputName)
+    return await element.setValue(fakerData);
+});
+
+// ************* End ************* //
 When('I clear value from input {string}', async function (inputName) {
     let selector = await selectors[inputName];
     let element = await this.driver.$(selector);
@@ -112,6 +161,12 @@ Then('I check text updated in {string}', async function (inputName) {
     let selector = selectors[inputName];
     let elementValue = await this.driver.$(selector).getValue();
     expect(elementValue).to.equal(dataPool[dataIndex][inputName]);
+});
+
+Then('I check fake text updated in {string}', async function (inputName) {
+    let selector = selectors[inputName];
+    let elementValue = await this.driver.$(selector).getValue();
+    expect(elementValue).to.equal(fakerInputTypes[inputName].value);
 });
 
 Then('I check text {kraken-string} in {string}', async function (text, inputName) {
@@ -163,4 +218,14 @@ function featureFileInPath(path) {
 
 function filesInPath(path) {
     return fs.readdirSync(path);
+}
+
+function fakerGenerator(limit, dataType, input) {
+
+    if(dataType === 'string') {
+        let fakeData = faker.datatype.string(fakerInputTypes[input][limit].length)
+        fakerInputTypes[input].value = fakeData;
+        return fakeData;
+    }
+
 }
