@@ -13,22 +13,22 @@ client.generate({
         {
             name: 'Full name',
             type: 'Regular Expression',
-            value: '\\w{191}'
+            value: '\\w{1}'
         },
         {
             name: 'Slug',
             type: 'Formula',
-            value: 'lower(/\\w{185}/.gen)'
+            value: 'lower(/\\w{1}/.gen)'
         },
         {
             name: 'Email',
             type: 'Formula',
-            value: "concat('username@mywebsite', /\\w{169}/.gen, '.com')"
+            value: "concat('u@', /\\w{1}/.gen, '.co')"
         },
         {
             name: 'Location',
             type: 'Regular Expression',
-            value: '\\w{150}'
+            value: '\\w{1}'
         }
     ]
 }).then(function(records) {

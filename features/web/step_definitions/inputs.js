@@ -13,7 +13,7 @@ let dataPool;
 try {
     dataPool = require(dataPoolFile);
 } catch (ex) {
-    dataPool = {};
+    dataPool = [{}];
     console.log("Data pool file doesn't exist. Importing file skipped. " + ex)
 }
 
@@ -100,6 +100,12 @@ When('I set value {kraken-string} into input {string}', async function (text, in
     let selector = selectors[inputName];
     let element = await this.driver.$(selector);
     return await element.setValue(text);
+});
+
+When('I clear value from input {string}', async function (inputName) {
+    let selector = await selectors[inputName];
+    let element = await this.driver.$(selector);
+    return await element.clearValue();
 });
 
 Then('I check text updated in {string}', async function (inputName) {

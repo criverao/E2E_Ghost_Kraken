@@ -38,7 +38,7 @@ Feature: Edición de perfil de Staff
     # Comment -> Then I check the fields were updated
     Then I expect a "Saved" button
     And I refresh the current page
-    And I wait for 5 seconds to take a screenshot
+    And I wait for 3 seconds to take a screenshot
     And I check text updated in "Full name"
     And I check text updated in "Slug"
     And I check text updated in "Email"
