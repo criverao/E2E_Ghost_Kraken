@@ -26,7 +26,7 @@ Feature: Edición de perfil de Staff
     # Comment -> Then I check the fields were updated
 
     Then I expect a "Retry" button
-    And I expect error message "Please supply a valid email address"
+    And I expect error message "Email is too long"
 
     # Comment -> And I restore theirs initial values
     And I restore initial value into input "Email"
