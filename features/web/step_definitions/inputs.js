@@ -15,7 +15,7 @@ try {
     dataPool = require(dataPoolFile);
 } catch (ex) {
     dataPool = [{}];
-    console.log("Data pool file doesn't exist. Importing file skipped. " + ex)
+    console.log("Data pool file doesn't exist. Importing file skipped. " + ex);
 }
 
 let dataIndex = getRandomInt(0, dataPool.length);
@@ -37,7 +37,8 @@ let settingsInitialValues = {
 
 let pageInitialValues = {
     "Page title": "",
-    "Content page": ""
+    "Content page": "",
+    "Excerpt": ""
 }
 
 let initialValues = {
@@ -63,7 +64,8 @@ let settingsSelectors = {
 
 let pageSelectors = {
     "Page title": "//body//div//div//main//div//section//div//div//textarea",
-    "Content page": "(//div[@data-kg='editor'])[1]"
+    "Content page": "(//div[@data-kg='editor'])[1]",
+    "Excerpt": "(//textarea[@id='custom-excerpt'])[1]"
 }
 
 let selectors = {
@@ -151,6 +153,21 @@ let fakerInputTypes = {
         "too long": {
             length: 20
         }
+    },
+    'Excerpt': {
+        value: "",
+        "normal": {
+            length: 50
+        },
+        "lower": {
+            length: 1
+        },
+        "upper": {
+            length: 300
+        },
+        "too long": {
+            length: 301
+        }
     }
 }
 
@@ -168,7 +185,7 @@ When('I click on Expand button from {string}', async function (button) {
 When('I get text value in {string}', async function (inputName) {
     let selector = selectors[inputName];
     initialValues[inputName] = await this.driver.$(selector).getValue();
-    console.log("INITIAL VALUE FOR " + inputName + ": " + initialValues[inputName]);
+    //console.log("INITIAL VALUE FOR " + inputName + ": " + initialValues[inputName]);
     return await initialValues[inputName];
 });
 
@@ -188,8 +205,18 @@ When('I set value {kraken-string} into input {string}', async function (text, in
 When('I set {string} {string} value on runtime into input {string}', async function (limit, dataType, inputName) {
     let selector = selectors[inputName];
     let element = await this.driver.$(selector);
-    const fakerData = fakerGenerator(limit, dataType, inputName)
+    const fakerData = fakerGenerator(limit, dataType, inputName);
+    fakerInputTypes[inputName].value = fakerData;
     return await element.setValue(fakerData);
+});
+
+When('I set random {string} {string} value on runtime into input {string}', async function (limit, dataType, inputName) {
+    let selector = selectors[inputName];
+    let element = await this.driver.$(selector);
+    let fakerData = randomFakerGenerator(limit, dataType, inputName);
+    let dataIndex = getRandomInt(0, fakerData.length);
+    //console.log("DATA INDEX FAKER: " + fakerData);
+    return await element.setValue(fakerData[dataIndex]);
 });
 
 // ************* End ************* //
@@ -226,6 +253,11 @@ Then('I expect text was not updated in {string}', async function (inputName) {
 Then('I expect error message {string}', async function (error) {
     let elementValue = await this.driver.$(`//p[normalize-space()='${error}']`).getText();
     expect(elementValue).to.equal(error);
+});
+
+Then('I expect the Publish dropdown menu is not displayed', async function () {
+    let elements = await this.driver.$$(".ember-view.ember-basic-dropdown-trigger");
+    expect(elements.length > 0).to.equal(false);
 });
 
 Then('I restore initial value into input {string}', async function (inputName) {
@@ -265,19 +297,22 @@ function filesInPath(path) {
 function fakerGenerator(limit, dataType, input) {
 
     if(dataType === 'string') {
-        let fakeData = faker.datatype.string(fakerInputTypes[input][limit].length)
-        fakerInputTypes[input].value = fakeData;
-        return fakeData;
+        return faker.datatype.string(fakerInputTypes[input][limit].length);
     }
     else if(dataType === 'sentence') {
-        let fakeData = faker.lorem.sentence(fakerInputTypes[input][limit].length)
-        fakerInputTypes[input].value = fakeData;
-        return fakeData;
+        return faker.lorem.sentence(fakerInputTypes[input][limit].length);
     }
     else if(dataType === 'paragraphs') {
-        let fakeData = faker.lorem.paragraphs(fakerInputTypes[input][limit].length)
-        fakerInputTypes[input].value = fakeData;
-        return fakeData;
+        return faker.lorem.paragraphs(fakerInputTypes[input][limit].length);
     }
 
+}
+
+function randomFakerGenerator(limit, dataType, input) {
+    let fakeData = [];
+    let randomInt = getRandomInt(10, 20);
+    for (let i = 0; i < randomInt; i++) {
+        fakeData[i] = fakerGenerator(limit, dataType, input)
+    }
+    return fakeData;
 }
