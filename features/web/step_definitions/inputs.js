@@ -47,6 +47,11 @@ let initialValues = {
     ...pageInitialValues
 }
 
+let loginSelectors = {
+    "Email": 'input[name="identification"]',
+    "Password": 'input[name="password"]'
+}
+
 let profileSelectors = {
     'Full name': "(//input[@type='text'])[1]",
     'Slug': "(//input[@type='text'])[2]",
@@ -65,10 +70,11 @@ let settingsSelectors = {
 let pageSelectors = {
     "Page title": "//body//div//div//main//div//section//div//div//textarea",
     "Content page": "(//div[@data-kg='editor'])[1]",
-    "Excerpt": "(//textarea[@id='custom-excerpt'])[1]"
+    "Excerpt": "(//textarea[@id='custom-excerpt'])[1]",
 }
 
 let selectors = {
+    ...loginSelectors,
     ...profileSelectors,
     ...settingsSelectors,
     ...pageSelectors
@@ -167,6 +173,36 @@ let fakerInputTypes = {
         },
         "too long": {
             length: 301
+        }
+    },
+    'Email': {
+        value: "",
+        "normal": {
+            length: 30
+        },
+        "lower": {
+            length: 1
+        },
+        "upper": {
+            length: 190
+        },
+        "too long": {
+            length: 191
+        }
+    },
+    'Password': {
+        value: "",
+        "normal": {
+            length: 30
+        },
+        "lower": {
+            length: 1
+        },
+        "upper": {
+            length: 60
+        },
+        "too long": {
+            length: 61
         }
     }
 }
